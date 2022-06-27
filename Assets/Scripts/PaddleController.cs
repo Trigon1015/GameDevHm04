@@ -24,27 +24,48 @@ public class PaddleController : MonoBehaviour
 
     private void Update()
     {
+        
         if(Input.GetKey(KeyCode.A))
         {
             
             this.direction = Vector2.left;
+            this.rigidbody.velocity = new Vector2(-speed, rigidbody.velocity.y);
         }
         else if(Input.GetKey(KeyCode.D))
         {
             this.direction = Vector2.right;
+            this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
         }
         else
         {
             this.direction = Vector2.zero;
+            this.rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
         }
+        
     }
 
     private void FixedUpdate()
     {
+        /*
         if(this.direction != Vector2.zero)
         {
-            this.rigidbody.AddForce(this.direction * this.speed);
+            //this.rigidbody.AddForce(this.direction * this.speed);
+            if (Input.GetKey(KeyCode.A))
+            {
+
+                this.rigidbody.velocity = new Vector2(-speed, rigidbody.velocity.y);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                this.rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
+            }
+            else
+            {
+                this.rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+            }
+            
         }
+        */
     }
 
     private void OnCollisionEnter2D(Collision2D other)

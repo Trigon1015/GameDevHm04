@@ -6,7 +6,7 @@ public class Brick : MonoBehaviour
 {
     public SpriteRenderer sr { get; private set; }
     public Color[] states;
-    public int points = 100;
+    public int points = 10;
     public int health { get; private set; }
     public bool unbreakable;
 
@@ -46,7 +46,7 @@ public class Brick : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.name == "Ball")
+        if(other.gameObject.name == "Ball" || other.gameObject.tag == "Player")
         {
             Hit();
         }
